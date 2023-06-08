@@ -60,7 +60,7 @@ If you want something, you should ask for it.<br>
 
 那角落的路灯孤零零地亮着，照亮了一小片区域，它不在乎谁注意到了它，只是<br>
 
-## Poems - 唯有热爱，能抵岁月漫长
+## Poems - 唯有热爱，能抵岁月漫长。
 
 ### 青春
 
