@@ -1,3 +1,9 @@
+---
+layout: default
+title: Sentences
+description: 
+---
+
 # Sentences
 
 > 忧伤者有两种忧伤的理由，要么他们无知识，要么他们抱希望。

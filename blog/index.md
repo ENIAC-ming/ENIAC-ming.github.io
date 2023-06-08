@@ -14,11 +14,10 @@ So, if you are also good at computer, can I make friends with you?
 
 ### My pages
 
-- [Poems and Words](./poems%26words.md)
-- [Sentences](./sentences.md)
-
-- [Algorithms](http://al.yanjm.top)
-- [Configurations](./configurations.md)
+- [Poems and Words](./poems%26words.html)
+- [Sentences](./sentences.html)
+- [Algorithms](http://al.yanjm.thtml)
+- [Configurations](./configurations.html)
 
 - - -
 <p>eniac_ming@qq.com</p>

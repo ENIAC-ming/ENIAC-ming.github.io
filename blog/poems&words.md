@@ -1,5 +1,8 @@
-# Poems and Words
-
+---
+layout: default
+title: Poems and Words
+description: copy or original
+---
 ## Words & Sentences - 心有所信，方能行远。
 
 星星之火，可以燎原；尘埃虽微，亦能补益大海。
@@ -56,7 +59,6 @@ If you want something, you should ask for it.<br>
 人类总是抱有希望，哪怕希望真的渺茫<br>
 
 那角落的路灯孤零零地亮着，照亮了一小片区域，它不在乎谁注意到了它，只是<br>
-
 
 ## Poems - 唯有热爱，能抵岁月漫长
 

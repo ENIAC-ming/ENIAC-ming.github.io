@@ -1,10 +1,10 @@
-# Configurations
-
+---
+layout: default
+title: Configurations
+description: which can be refer to
+---
 ## conky
 ```lua
--- vim: ts=4 sw=4 noet ai cindent syntax=lua
-
-
 conky.config = {
     alignment = 'top_right',
     background = yes,
