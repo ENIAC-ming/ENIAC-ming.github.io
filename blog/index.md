@@ -16,8 +16,5 @@ So, if you are also good at computer, can I make friends with you?
 
 - [Poems and Words](./poems%26words.html)
 - [Sentences](./sentences.html)
-- [Algorithms](http://al.yanjm.thtml)
+- [Algorithms](http://al.yanjm.top/)
 - [Configurations](./configurations.html)
-
-- - -
-<p>eniac_ming@qq.com</p>
