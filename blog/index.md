@@ -5,11 +5,20 @@ description: Can I make friends with you?
 ---
 
 ## Hey, here is ENIAC_ming
+
 I am a student in China, and I am interesting in Coding.
 
 So, if you are also good at computer, can I make friends with you?
 
-Here is some [Algorithms](http://al.yanjm.top)
+- - -
+
+### My pages
+
+- [Poems and Words](./poems%26words.md)
+- [Sentences](./sentences.md)
+
+- [Algorithms](http://al.yanjm.top)
+- [Configurations](./configurations.md)
 
 - - -
 <p>eniac_ming@qq.com</p>
