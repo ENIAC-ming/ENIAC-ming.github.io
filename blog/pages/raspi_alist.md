@@ -77,7 +77,7 @@ target.innerText = "ENIAC_ming";
 window.onload = setTimeout(uinit, 3000 );
 </script>
 <style>
-body { background-image: url(https://bing.shangzhenyang.com/api/1080p); background-size: cover; background-position: center;}
+body { background-image: url(https://bing.shangzhenyang.com/api/1080p); background-size: cover; background-position: center; background-attachment: fixed;}
 .hope-c-PJLV-igScBhH-css {background-color: #FFFFFFb2 !important;}
 .hope-c-PJLV-iigjoxS-css {background-color: #202425b2 !important;}
 .hope-c-PJLV-ihQbspH-css {padding: var(--hope-space-2) !important; border-radius: var(--hope-radii-md) !important; background: var(--hope-colors-neutral4); width: auto !important;}
