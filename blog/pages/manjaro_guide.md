@@ -63,3 +63,7 @@ yay -S microsoft-edge-stable-bin
 /usr/bin/microsoft-edge-stable --proxy-server="http://192.168.3.2:7890,direct://" --proxy-bypass-list="*.microsoft.com;*.cn;*.baidu.com;127.0.0.1"
 ```
 [参考链接](https://learn.microsoft.com/zh-cn/deployedge/edge-learnmore-cmdline-options-proxy-settings)
+
+## emoji
+
+[[HowTo] Enable emoji fonts](https://forum.manjaro.org/t/howto-enable-emoji-fonts/36695)
