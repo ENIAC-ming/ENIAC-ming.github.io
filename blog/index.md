@@ -13,6 +13,8 @@ So, if you are also good at computer, can I make friends with you?
 - - -
 ## My acticles
 
+- [[2023.9.3] manjaro避坑指南](./pages/manjaro_guide.html)
+
 - [[2023.7.3] Raspberry Pi × Alist](./pages/raspi_alist.html)
 
 - [[2023.6.30] 中考总结](./pages/exam_summary.html)
