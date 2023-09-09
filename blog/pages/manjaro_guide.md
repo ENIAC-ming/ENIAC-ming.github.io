@@ -18,7 +18,7 @@ sudo pacman-mirrors -i -c China -m rank
 
 ## 开始
 
-```
+```shell
 # 更新系统
 sudo pacman -Syu
 # 安装软件
@@ -27,6 +27,15 @@ sudo pacman -S xxx
 sudo pacman -Ss xxx
 # 彻底卸载软件
 sudo pacman -Rns xxx
+```
+
+## 代理
+
+### 临时代理
+
+```shell
+export http_proxy=http://127.0.0.1:7890
+export https_proxy=https://127.0.0.1:7890
 ```
 
 ## 微信
