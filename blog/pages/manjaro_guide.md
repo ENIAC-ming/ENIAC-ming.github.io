@@ -4,6 +4,12 @@ title: manjaro避坑指南
 description: 2023.9.3
 ---
 
+> 1. 换源
+> 2. 更新系统
+> 3. 修改主目录为英文
+> 4. 重启
+> 5. 安装微信QQ
+
 ## 换源
 
 ```shell
@@ -24,8 +30,11 @@ sudo pacman -Rns xxx
 ```
 
 ## 微信
-
-[可能遇到的问题](https://github.com/vufa/deepin-wine-wechat-arch/issues/271)
+> 可能遇到的问题：
+> 
+> [安装错误](https://github.com/vufa/deepin-wine-wechat-arch/issues/271)
+> 
+> [在文件夹中显示](https://github.com/vufa/deepin-wine-wechat-arch/issues/273)
 
 ```shell
 sudo pacman -S yay
