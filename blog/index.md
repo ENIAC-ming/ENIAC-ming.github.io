@@ -23,5 +23,5 @@ So, if you are also good at computer, can I make friends with you?
 
 - [Poems and Words](./pages/poems%26words.html)
 - [Sentences](./pages/sentences.html)
-- [Algorithms](http://al.yanjm.top/)
+- [Algorithms](/algorithms/index.html)
 - [Configurations](./pages/configurations.html)
