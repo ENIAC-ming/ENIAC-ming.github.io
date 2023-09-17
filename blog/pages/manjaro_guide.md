@@ -52,14 +52,8 @@ yay -S deepin-wine-wechat
 
 ## QQ
 
-[官网下载](https://im.qq.com)
-
-安装debtap
 ```shell
-yay -S debtap
-sudo debtap -u
-sudo debtap xxx.deb
-sudo pacman -U xxx.zst
+yay -S linuxqq
 ```
 
 ## Manjaro修改主目录为英文
