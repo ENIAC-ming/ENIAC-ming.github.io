@@ -81,8 +81,7 @@ body { background-image: url(https://bing.shangzhenyang.com/api/1080p); backgrou
 .hope-c-PJLV-igScBhH-css {background-color: #FFFFFFb2 !important;}
 .hope-c-PJLV-iigjoxS-css {background-color: #202425b2 !important;}
 .hope-c-PJLV-ihQbspH-css {padding: var(--hope-space-2) !important; border-radius: var(--hope-radii-md) !important; background: var(--hope-colors-neutral4); width: auto !important;}
-.hope-c-PJLV-ibMsOCJ-css {filter: grayscale(1) contrast(999) invert(1) !important;}
-.hope-c-iIOWzi {filter: grayscale(1) contrast(999) invert(1) !important;}
+.hope-c-cPYwgm {background-color: #FFFFFFb2 !important; border-radius: var(--hope-radii-xl) !important; padding: var(--hope-space-2) !important;}
 </style>
 ```
 
