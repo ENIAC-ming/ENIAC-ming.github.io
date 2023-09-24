@@ -19,6 +19,10 @@ So, if you are also good at computer, can I make friends with you?
 
 - [[2023.6.30] 中考总结](./pages/exam_summary.html)
 
+## Copies
+
+- [多种方式让你快速访问 GitHub](./copies/多种方式让你快速访问%20GitHub.html)
+
 ### My pages
 
 - [Poems and Words](./pages/poems%26words.html)
