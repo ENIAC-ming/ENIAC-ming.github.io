@@ -101,20 +101,96 @@ sudo systemctl enable --now cups
 
 ![最后在 GNOME 设置界面里看到打印机成功添加](https://blog.gimo.me/posts/using-brother-printer-on-linux/GNOME_Settings_Printers_hu986723f6be26005212c65202a8917e13_58100_1181x790_resize_q75_h2_box_3.webp)最后在 GNOME 设置界面里看到打印机成功添加
 
-### 扫描
+### 扫描（参考自[[经验分享] UOS/Deepin安装兄弟Brother打印机扫描驱动及配置文件的方法](https://bbs.chinauos.com/zh/post/11443)）
 
 相比打印，扫描就来得简单多了。参考 [SANE - ArchWiki](https://wiki.archlinux.org/title/SANE) 只需要安装几个软件即可，GNOME 桌面甚至提供了一个非常简洁美观的 GUI 界面方便使用。
 
-#### 安装
+*此处对于部分操作针对**arch/manjaro**作了修改，请注意*
 
-```bash
-sudo pacman -S sane sane-airscan simple-scan
+**1、下载扫描驱动Scanner Driver、扫描配置文件Scan-key-tool**
+
+前往兄弟中文官网查找、下载相应型号的扫描驱动Scanner Driver、扫描配置文件Scan-key-tool。网址：https://support.brother.com/g/b/productsearch.aspx?c=cn&lang=zh
+
+注意，本教程以Brother DCP-7195DW为例，其他型号打印机的用户，请下载对应型号的Scanner Driver、Scan-key-tool
+
+![截图_选择区域_20220306115928.jpg](https://storage.deepin.org/thread/202203061202163237_%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20220306115928.jpg)
+
+**2、安装扫描驱动Scanner Driver**
+
+可以双击运行deb包，或者在deb包所在文件夹——右键——在终端中打开——输入：
+
+```shell
+# 注意更换文件名
+debtap brscan4-0.4.11-1.amd64.deb
+sudo pacman -U brscan4-0.4.11-1-x86_64.pkg.tar.zst
 ```
 
-#### GUI 程序
+如Brother DCP7195DW的扫描驱动deb包名称为brscan4-0.4.11-1.amd64.deb，那么这行代码为sudo dpkg -i --force-all brscan4-0.4.11-1.amd64.deb。在此提醒一下，UOS用户需要开启开发者模式才能使用sudo权限。
 
-打开 Document Scanner（simple-scan），稍等片刻扫描仪设备便会出现，然后就可以扫描了。
+**3、安装扫描配置文件Scan-key-tool**
 
-另外通过比较，一般来说文字扫描有个 300 dpi，图片扫描最多 600 dpi 已经非常好了。往上除了徒增文件尺寸外似乎并没有太大用处。
+可以双击运行deb包，或者在deb包所在文件夹——右键——在终端中打开——输入：
 
-![Document Scanner 主界面](https://blog.gimo.me/posts/using-brother-printer-on-linux/Document_Scanner_hu9b10475b0f1a26ab7cd7fa777ecc9839_27875_890x760_resize_q75_h2_box_3.webp)Document Scanner 主界面
+```shell
+# 注意更换文件名
+debtap brscan-skey-0.3.2-0.amd64.deb
+sudo pacman -U brscan-skey-0.3.2-1-x86_64.pkg.tar.zst
+```
+
+**4、检查安装情况**
+
+终端中输入:
+
+```shell
+dpkg -l | grep Brother
+```
+
+查看列表中是否有Scanner S-KEY tool和Scanner Driver
+
+![img](https://storage-bbs.chinauos.com/thread/202203271518533920_%E6%88%AA%E5%9B%BE_deepin-terminal_20220327151844.jpg)
+
+**5、添加网络扫描仪**
+
+终端中输入以下两行命令：
+
+第一行命令（用于注册扫描仪）：
+
+```shell
+brsaneconfig4 -a name=(name your device) model=(model name) ip=xx.xx.xx.xx
+```
+
+**注意，这条命令括号中的内容以及IP地址需要用户自己替换完整**
+
+比如我的Brother DCP-7195DW打印机，name（随意）我填写为Brother，model（根据打印机型号填写，我填写DCP-7195DW），我的打印机的IP地址为192.168.1.108，那么这行命令完整应为：brsaneconfig4 -a name=Brother model=DCP-7195DW ip=192.168.1.108
+
+第二行命令（用于查看注册结果）：
+
+```shell
+brsaneconfig4 -q | grep (name of your device)
+```
+
+注意，括号中的内容需要用户自己根据上一条命令的name替换完整
+
+比如我上一条命令name我命名为Brother，所以这条命令完整为：brsaneconfig4 -q | grep Brother
+
+![img](https://storage-bbs.chinauos.com/thread/202203271523288374_%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20220327152316.jpg)
+
+**6、配置一键扫描功能**
+
+终端中输入以下两行命令：
+
+第一行命令（运行scan-key-tool）：
+
+```shell
+brscan-skey 
+```
+
+第二行命令（查看scan-key-tool是否检测到你的扫描仪）：
+
+```shell
+brscan-skey -l
+```
+
+![img](https://storage-bbs.chinauos.com/thread/202203271540244401_%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20220327153945.jpg)
+
+若检测出状态为Active，说明已经检测到扫描仪。如果检测不出结果，可以注销电脑，重新进入系统执行本行命令。如果仍检测不出结果，可以考虑重新执行上一行命令甚至重新执行本教程。
