@@ -91,7 +91,7 @@ sudo pacman -S cups
 sudo systemctl enable --now cups
 ```
 
-### 配置
+#### 配置
 
 访问 http://localhost:631/ 添加打印机即可。但我卡在这一步很久，虽然 CUPS 可以自动发现机器但是不知道为什么添加完打印机就是无法成功打印，由于官方并没有提供给 Arch Linux 的驱动安装包，不过也有 deb 和 rpm 包，我通过解压出里面的驱动程序，照道理应该可以使用才对，但就是不如愿，最后想要放弃的时候，通过手动配置 ipp 地址竟然成功添加并打印成功了，下面附上详细的步骤，以供后人参考。
 
@@ -105,17 +105,17 @@ sudo systemctl enable --now cups
 
 ![最后在 GNOME 设置界面里看到打印机成功添加](https://blog.gimo.me/posts/using-brother-printer-on-linux/GNOME_Settings_Printers_hu986723f6be26005212c65202a8917e13_58100_1181x790_resize_q75_h2_box_3.webp)最后在 GNOME 设置界面里看到打印机成功添加
 
-## 扫描
+### 扫描
 
 相比打印，扫描就来得简单多了。参考 [SANE - ArchWiki](https://wiki.archlinux.org/title/SANE) 只需要安装几个软件即可，GNOME 桌面甚至提供了一个非常简洁美观的 GUI 界面方便使用。
 
-### 安装
+#### 安装
 
 ```bash
 sudo pacman -S sane sane-airscan simple-scan
 ```
 
-### GUI 程序
+#### GUI 程序
 
 打开 Document Scanner（simple-scan），稍等片刻扫描仪设备便会出现，然后就可以扫描了。
 
