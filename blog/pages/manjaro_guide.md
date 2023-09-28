@@ -76,10 +76,6 @@ yay -S microsoft-edge-stable-bin
 ```
 [参考链接](https://learn.microsoft.com/zh-cn/deployedge/edge-learnmore-cmdline-options-proxy-settings)
 
-## emoji
-
-[[HowTo] Enable emoji fonts](https://forum.manjaro.org/t/howto-enable-emoji-fonts/36695)
-
 ## 打印机（参考自[在 Arch Linux 上使用兄弟（Brother）打印机](https://blog.gimo.me/posts/using-brother-printer-on-linux/)）
 
 ### 安装
