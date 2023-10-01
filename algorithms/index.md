@@ -8,6 +8,8 @@ description: 一些算法
 
 ### [A11](A11)
 
+### [NOIP 初赛复习](exam1_review)
+
 ### 大整数
 
 ```cpp
