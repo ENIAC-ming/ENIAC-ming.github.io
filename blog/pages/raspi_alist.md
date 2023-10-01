@@ -3,6 +3,25 @@ layout: default
 title: Raspberry Pi × Alist
 description: 何不在家组装一台美妙的NAS呢？
 ---
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [安装](#安装)
+- [配置](#配置)
+  - [美化](#美化)
+  - [搜索](#搜索)
+  - [aria2](#aria2)
+  - [内网穿透（前提是你已经配置好了FastTunnel服务端）](#内网穿透small前提是你已经配置好了fasttunnel服务端small)
+    - [dotnet](#dotnet)
+    - [安装](#安装-1)
+    - [配置](#配置-1)
+- [参考链接](#参考链接)
+
+<!-- /code_chunk_output -->
+
+
 ## 安装
 
 在开始之前，保证软件包最新 。

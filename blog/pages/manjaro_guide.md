@@ -10,6 +10,26 @@ description: 2023.9.3
 > 4. 重启
 > 5. 安装微信QQ
 
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [换源](#换源)
+- [开始](#开始)
+- [代理](#代理)
+  - [临时代理](#临时代理)
+- [微信](#微信)
+- [QQ](#qq)
+- [Manjaro修改主目录为英文](#manjaro修改主目录为英文)
+- [Edge浏览器](#edge浏览器)
+- [打印机](#打印机)
+  - [安装](#安装)
+    - [配置](#配置)
+  - [扫描](#扫描)
+
+<!-- /code_chunk_output -->
+
+
 ## 换源
 
 ```shell
@@ -76,7 +96,9 @@ yay -S microsoft-edge-stable-bin
 ```
 [参考链接](https://learn.microsoft.com/zh-cn/deployedge/edge-learnmore-cmdline-options-proxy-settings)
 
-## 打印机（参考自[在 Arch Linux 上使用兄弟（Brother）打印机](https://blog.gimo.me/posts/using-brother-printer-on-linux/)）
+## 打印机
+
+（参考自[在 Arch Linux 上使用兄弟（Brother）打印机](https://blog.gimo.me/posts/using-brother-printer-on-linux/)）
 
 ### 安装
 
@@ -101,7 +123,9 @@ sudo systemctl enable --now cups
 
 ![最后在 GNOME 设置界面里看到打印机成功添加](https://blog.gimo.me/posts/using-brother-printer-on-linux/GNOME_Settings_Printers_hu986723f6be26005212c65202a8917e13_58100_1181x790_resize_q75_h2_box_3.webp)最后在 GNOME 设置界面里看到打印机成功添加
 
-### 扫描（参考自[[经验分享] UOS/Deepin安装兄弟Brother打印机扫描驱动及配置文件的方法](https://bbs.chinauos.com/zh/post/11443)）
+### 扫描
+
+（参考自[[经验分享] UOS/Deepin安装兄弟Brother打印机扫描驱动及配置文件的方法](https://bbs.chinauos.com/zh/post/11443)）
 
 相比打印，扫描就来得简单多了。参考 [SANE - ArchWiki](https://wiki.archlinux.org/title/SANE) 只需要安装几个软件即可，GNOME 桌面甚至提供了一个非常简洁美观的 GUI 界面方便使用。
 

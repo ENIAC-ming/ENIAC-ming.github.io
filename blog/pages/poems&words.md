@@ -3,6 +3,20 @@ layout: default
 title: Poems and Words
 description: copy or original
 ---
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [Words & Sentences - 心有所信，方能行远。](#words--sentences---心有所信方能行远)
+- [Words](#words)
+- [Poems - 唯有热爱，能抵岁月漫长。](#poems---唯有热爱能抵岁月漫长)
+  - [青春](#青春)
+  - [天](#天)
+
+<!-- /code_chunk_output -->
+
+
 ## Words & Sentences - 心有所信，方能行远。
 
 星星之火，可以燎原；尘埃虽微，亦能补益大海。

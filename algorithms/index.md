@@ -10,6 +10,19 @@ description: 一些算法
 
 ### [NOIP 初赛复习](exam1_review)
 
+- [大整数](#大整数)
+- [并查集](#并查集)
+- [Dijkstra堆优化](#dijkstra堆优化)
+- [SPFA](#spfa)
+- [Floyd](#floyd)
+- [链式前向星](#链式前向星)
+- [拓扑排序](#拓扑排序)
+- [Kruskal](#kruskal)
+- [快速幂](#快速幂)
+- [线段数组（视频讲解）](#线段数组视频讲解httpsb23tv7ohqvp0)
+- [快速排序](#快速排序httpswwwluogucomcnproblemp1177)
+- [运算符优先级](#运算符优先级)
+
 ### 大整数
 
 ```cpp
