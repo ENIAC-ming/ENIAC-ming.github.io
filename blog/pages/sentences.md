@@ -4,6 +4,10 @@ title: Sentences
 description: 
 ---
 
+# Paragraph
+
+我向来觉得，生命就像以根茎来维持存活的植物，真正的生命是不可见的，是深藏于根茎之中的。露出土壤的那部分生命只能延续一个夏季。我们所见的是花，他会消失的，但根茎，却依然存在。
+
 # Sentences
 
 > 忧伤者有两种忧伤的理由，要么他们无知识，要么他们抱希望。
@@ -53,4 +57,3 @@ description:
 ![](https://cdn.jsdelivr.net/gh/growvv/image-bed//mac-m1/valdemaras-d-khbjgGAerPU-unsplash.jpg)
 
 ![](https://cdn.jsdelivr.net/gh/growvv/image-bed//mac-m1/michael-fousert-lE5-z4nTCTQ-unsplash.jpg")
-

@@ -11,6 +11,7 @@ I am a student in China, and I am interesting in Coding.
 So, if you are also good at computer, can I make friends with you?
 
 - - -
+
 ## My acticles
 
 - [[2023.9.3] manjaro避坑指南](./pages/manjaro_guide.html)
@@ -22,6 +23,12 @@ So, if you are also good at computer, can I make friends with you?
 ## Copies
 
 - [多种方式让你快速访问 GitHub](./copies/多种方式让你快速访问%20GitHub.html)
+
+- [归海](./copies/归海.html)
+
+## Tools
+
+- [HTML To Markdown](/tools/html_to_md/)
 
 ### My pages
 
