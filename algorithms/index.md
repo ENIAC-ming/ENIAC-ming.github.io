@@ -292,12 +292,10 @@ bool toposort() {
 
 ```cpp
 // -->> 并查集 <<-- //
-struct Edge {
-    int u, v, w;
-} e[maxm];
-int ecnt;
+struct Edge {int u, v, w;} e[maxm]; // 使用结构体储存每一条边，便于排序
+int ecnt; // 用于边表计数
 int Kruskal() {
-    init()
+    init(); // 初始化并查集
     sort(e + 1, e + ecnt + 1, cmp);
     int cnt = 0;
     int ans = 0;
