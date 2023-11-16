@@ -10,13 +10,13 @@ description: 一些算法
 
 ### [NOIP 初赛复习](exam1_review)
 
-- [优化](#优化)
+- [输入输出优化](#输入输出优化)
 - [大整数](#大整数)
 - [并查集](#并查集)
+- [链式前向星](#链式前向星)
 - [Dijkstra堆优化](#dijkstra堆优化)
 - [SPFA](#spfa)
 - [Floyd](#floyd)
-- [链式前向星](#链式前向星)
 - [拓扑排序](#拓扑排序)
 - [Kruskal](#kruskal)
 - [快速幂](#快速幂)
@@ -24,7 +24,7 @@ description: 一些算法
 - [快速排序](#快速排序httpswwwluogucomcnproblemp1177)
 - [运算符优先级](#运算符优先级)
 
-### 优化
+### 输入输出优化
 
 ```cpp
 ios::sync_with_stdio(false);
@@ -173,20 +173,40 @@ void merge(int x, int y) {
 }
 ```
 
+### 链式前向星
+
+```cpp
+int tot = -1, head[MAXN];
+struct Edge{int to, next, w;} edge[MAXN];
+void list_star_init()
+{
+    memset(head, -1, sizeof(head));
+}
+void add_edge(int u, int v, int w)
+{
+    edge[++tot] = (Edge){v, head[u], w};
+    head[u] = tot;
+}
+```
+
 ### Dijkstra堆优化
 
 ```cpp
-set<pair<int, int> > min_heap;
-min_heap.insert(make_pair(0, s));
-while (min_heap.size()) {
-    int v = min_heap.begin() -> second; // 取出最近的点
-    min_heap.erase(min_heap.begin()); // 删除首元素
-    for (int i = h[v]; i != -1; i = edge[i].next) {
-        int to = edge[i].to;
-        if (d[to] > d[v] + edge[i].len) {
-            min_heap.erase(make_pair(d[to], to)); // 先删除原来的元素
-            d[to] = d[v] + edge[i].len; // 更新距离
-            min_heap.insert(make_pair(d[to], to)); // 加入新的元素
+int d[MAXN];
+void dij(int s) {
+    memset(d, 0x3f, sizeof(d));
+    set<pair<int, int>> min_heap;
+    min_heap.insert(make_pair(0, s));
+    while (!min_heap.empty()) {
+        int curr = min_heap.begin()->second; // 取出最近的点
+        min_heap.erase(min_heap.begin());    // 删除首元素
+        for (int i = head[curr]; i != -1; i = edge[i].next) {
+            int next = edge[i].to;
+            if (d[next] > d[curr] + edge[i].w) {
+                min_heap.erase(make_pair(d[next], next));  // 先删除原来的元素
+                d[next] = d[curr] + edge[i].w;             // 更新距离
+                min_heap.insert(make_pair(d[next], next)); // 加入新的元素
+            }
         }
     }
 }
@@ -195,26 +215,26 @@ while (min_heap.size()) {
 ### SPFA
 
 ```cpp
-bool in_queue[MAX_N];
-int d[MAX_N];  // 如果到顶点 i 的距离是 0x3f3f3f3f，则说明不存在源点到 i 的最短路
+bool in_queue[MAXN];
+int d[MAXN]; // 如果到顶点 i 的距离是 0x3f3f3f3f，则说明不存在源点到 i 的最短路
 queue<int> q;
 void spfa(int s) {
-    memset(in_queue, 0, sizeof(in_queue));
+    memset(in_queue, 0x00, sizeof(in_queue));
     memset(d, 0x3f, sizeof(d));
     d[s] = 0;
     in_queue[s] = true; // 标记 s 入队
     q.push(s);
     while (!q.empty()) {
-        int v = q.front();
+        int curr = q.front();
         q.pop();
-        in_queue[v] = false;
-        for (int i = h[v]; i != -1; i = edge[i].next) {
-            int to = edge[i].to;
-            if (d[to] > d[v] + g[v][i].w) { // 更新
-                d[to] = d[v] + g[v][i].w;
-                if (!in_queue[to]) { // 如果之前没入队
-                    q.push(to); // 入队
-                    in_queue[to] = true; // 标记 to 入队
+        in_queue[curr] = true;
+        for (int i = head[curr]; i != -1; i = edge[i].next) {
+            int next = edge[i].to;
+            if (d[next] > d[curr] + edge[i].w) { // 更新
+                d[next] = d[curr] + edge[i].w;
+                if (!in_queue[next]) { // 如果之前没入队
+                    q.push(next);          // 入队
+                    in_queue[next] = true; // 标记 to 入队
                 }
             }
         }
@@ -225,58 +245,44 @@ void spfa(int s) {
 ### Floyd
 
 ```cpp
-int g[N][N];
+int edge[MAXN][MAXN];
 void floyd(int n) {
     for (int k = 1; k <= n; k++) { // 中间点
         for (int i = 1; i <= n; i++) { // 起点
             for (int j = 1; j <= n; j++) { // 终点
-                g[i][j] = min(g[i][j], g[i][k] + g[k][j]);
+                edge[i][j] = min(edge[i][j], edge[i][k] + edge[k][j]);
             }
         }
     }
 }
 ```
 
-### 链式前向星
-
-```cpp
-int head[n], tot = -1;     //定义入口和末尾 
-struct Edge {int to, next, len;};  //定义边 
-memset(head, -1, sizeof(head));   //初始化 
-void addEdge(int x, int y, int len) { //加边x --len--> y 
-    edge[++tot] = (Edge){y, h[x], len}; 
-    head[x] = tot; 
-}
-```
-
 ### 拓扑排序
 
 ```cpp
-vector<int> G[maxn];
-int deg[maxn];
-void addEdge(int u, int v) {
-    G[u].push_back(v);
-    deg[v]++;
-}
-int seq[maxn];
-bool toposort(int n) {
+int seq[MAXN] = {};
+bool toposort() {
+    int deg[MAXN];
     queue<int> q;
-    for (int i = 1; i <= n; i++) {
-        if (deg[i] == 0)
-        {
+    for (int i = 0; i <= tot; i++) { // 遍历边
+        deg[edge[i].to]++;
+    }
+    for (int i = 1; i <= n; i++) { // 遍历点
+    
+        if (deg[i] == 0) {
             q.push(i);
         }
     }
-    int ncnt = 0;
+    int ncnt = -1;
     while (!q.empty()) {
-        int u = q.front();
+        int curr = q.front();
         q.pop();
-        seq[++ncnt] = u;
-        for (int i = 0; i < G[u].size(); i++) {
-            int v = G[u][i];
-            deg[v] -= 1;
-            if(deg[v] == 0) {
-                q.push(v);
+        seq[++ncnt] = curr;
+        for (int i = head[curr]; i != -1; i = edge[i].next) {
+            int next = edge[i].to;
+            deg[next]--;
+            if (deg[next] == 0) {
+                q.push(curr);
             }
         }
     }
@@ -330,18 +336,18 @@ int qpow(int a, int n){
 ### 线段数组[（视频讲解）](https://b23.tv/7ohQVP0)
 
 ```cpp
-int b[N] = {}, N;
+int b[MAXN] = {}, n;
 inline int lowbit(int x) {
  return x & (-x);
 }
 void add(int p, int x) {
- while (p < N) {
+ while (p < n) {
   b[p] += x;
   p += lowbit(p);
  }
 }
-int count(int p) {
- int res = 0;
+long long count(int p) {
+ long long res = 0;
  while (p) {
   res += p[b];
   p -= lowbit(p);
@@ -367,8 +373,8 @@ void qsort(int * a, int l, int r) {
    i++, j--;
   }
  }         // }
- if (l < j) sort(a, l, j);   // 此时i与j相交，即j在i的左边，且此时i≠j（l--ji--r）
- if (i < r) sort(a, i, r);   // 将l--j，i--r传入函数进行递归
+ if (l < j) qsort(a, l, j);   // 此时i与j相交，即j在i的左边，且此时i≠j（l--ji--r）
+ if (i < r) qsort(a, i, r);   // 将l--j，i--r传入函数进行递归
 }
 // *其实mid并没有什么作用，只是作为基准数，
 // *但是这个基准数是快排的重要工具，它可以使得这一个数组被切成两半
