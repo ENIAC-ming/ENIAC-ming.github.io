@@ -178,12 +178,10 @@ void merge(int x, int y) {
 ```cpp
 int tot = -1, head[MAXN];
 struct Edge{int to, next, w;} edge[MAXN];
-void list_star_init()
-{
+void list_star_init() {
     memset(head, -1, sizeof(head));
 }
-void add_edge(int u, int v, int w)
-{
+void add_edge(int u, int v, int w) {
     edge[++tot] = (Edge){v, head[u], w};
     head[u] = tot;
 }
