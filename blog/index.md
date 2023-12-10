@@ -14,7 +14,7 @@ So, if you are also good at computer, can I make friends with you?
 
 ## My acticles
 
-- [[2023.9.3] nuitka踩坑日记](./pages/nuitka.html)
+- [[2023.10.14] nuitka踩坑日记](./pages/nuitka.html)
 
 - [[2023.9.3] manjaro避坑指南](./pages/manjaro_guide.html)
 
