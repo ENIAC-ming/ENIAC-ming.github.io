@@ -174,30 +174,33 @@ export DOTNET_ROOT=$HOME/.dotnet
 wget https://gitee.com/Hgui/FastTunnel/releases/download/v2.1.2/FastTunnel.Client.tar.gz
 tar -zxvf FastTunnel.Client.tar.gz
 cd FastTunnel.Client/
-nano appsettings.json
 ```
+
+编辑配置文件`appsettings.json`
 
 #### 配置
 
 建议启用守护进程：
 
-编辑`/usr/lib/systemd/system/FastTunnel.service`，将`FASTTUNNEL_PATH`更改为安装位置，如`/root/fasttunnel/`，dotnet最好使用绝对路径。
+编辑`/usr/lib/systemd/system/FastTunnel.service`，将`/root/FastTunnel.Client/`更改为你自己的安装位置，dotnet最好使用绝对路径（我直接将[dotnet](https://dotnet.microsoft.com/zh-cn/download/dotnet/7.0)解压至同一文件夹下，一并解决了dotnet版本问题）。
 
 ```bash
 [Unit]
 Description=fasttunnel
 [Service]
 Type=simple
-WorkingDirectory=FASTTUNNEL_PATH
+WorkingDirectory=/root/FastTunnel.Client/
 Restart=on-failure
 RestartSec=10
-ExecStart=dotnet FastTunnel.Server.dll
-ExecReload=dotnet FastTunnel.Server.dll
+ExecStart=/root/FastTunnel.Client/dotnet FastTunnel.Client.dll
+ExecReload=/root/FastTunnel.Client/dotnet FastTunnel.Client.dll
 [Install]
 WantedBy=multi-user.target
 ```
 
 然后，执行 `systemctl daemon-reload` 重载配置
+
+然后，执行 `systemctl enable FastTunnel.service` 开机自启
 
 ## 参考链接
 
