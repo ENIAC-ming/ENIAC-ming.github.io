@@ -20,8 +20,8 @@ description: 一些算法
 - [拓扑排序](#拓扑排序)
 - [Kruskal](#kruskal)
 - [快速幂](#快速幂)
-- [线段数组（视频讲解）](#线段数组视频讲解httpsb23tv7ohqvp0)
-- [快速排序](#快速排序httpswwwluogucomcnproblemp1177)
+- [线段数组（视频讲解）](#线段数组)
+- [快速排序](#快速排序)
 - [运算符优先级](#运算符优先级)
 
 ### 输入输出优化
@@ -329,7 +329,9 @@ int qpow(int a, int n){
 }
 ```
 
-### 线段数组[（视频讲解）](https://b23.tv/7ohQVP0)
+### 线段数组
+
+[视频讲解](https://b23.tv/7ohQVP0)
 
 ```cpp
 int b[MAXN] = {}, n;
@@ -352,7 +354,9 @@ long long count(int p) {
 }
 ```
 
-### [快速排序](https://www.luogu.com.cn/problem/P1177)
+### 快速排序
+
+[题目](https://www.luogu.com.cn/problem/P1177)
 
 ```cpp
 #include <cstdio>
