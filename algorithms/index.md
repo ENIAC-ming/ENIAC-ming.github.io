@@ -12,6 +12,7 @@ description: 一些算法
 
 - [输入输出优化](#输入输出优化)
 - [大整数](#大整数)
+- [最大公因数](#最大公因数)
 - [并查集](#并查集)
 - [链式前向星](#链式前向星)
 - [Dijkstra堆优化](#dijkstra堆优化)
@@ -23,6 +24,7 @@ description: 一些算法
 - [线段数组（视频讲解）](#线段数组)
 - [快速排序](#快速排序)
 - [运算符优先级](#运算符优先级)
+- [一些话](#一些话)
 
 ### 输入输出优化
 
@@ -142,10 +144,22 @@ pair<string, long long> divide1(const string& a, long long b)//快除（高精�
  ans.erase(0, ans.find_first_not_of('0'));
  return make_pair(ans.empty() ? "0" : ans, dividend);
 }
+```
 
+### 最大公因数
+```cpp
 long long gcd(long long a, long long b)
 {
  return b == 0 ? a : gcd(b, a % b);
+}
+
+void exgcd(int a, int b, int& x, int& y) { // 拓展欧几里得算法
+  if (b == 0) {
+    x = 1, y = 0;
+    return;
+  }
+  exgcd(b, a % b, y, x);
+  y -= a / b * x;
 }
 ```
 
@@ -393,3 +407,26 @@ int main() {
 ### 运算符优先级
 
 <table style="font-size:15px" border="1" cellspacing="5" cellpadding="5"><tbody><tr><th class="code-table-th">优先级</th><th class="code-table-th">操作符</th><th class="code-table-th">描述</th><th class="code-table-th">例子</th><th class="code-table-th">结合性</th></tr><tr><td class="code-table-td">1</td><td class="code-table-td">()<br> []<br> -&gt;<br> .<br> ::<br> ++<br> --</td><td class="code-table-td">调节优先级的括号操作符<br> 数组下标访问操作符<br> 通过指向对象的指针访问成员的操作符<br> 通过对象本身访问成员的操作符<br> 作用域操作符<br> 后置自增操作符<br> 后置自减操作符</td><td class="code-table-td">(a + b) / 4;<br> array[4] = 2;<br> ptr-&gt;age = 34;<br> obj.age = 34;<br> Class::age = 2;<br> for( i = 0; i &lt; 10; i++ ) ...<br> for( i = 10; i &gt; 0; i-- ) ...</td><td class="code-table-td">从左到右</td></tr><tr><td class="code-table-td">2</td><td class="code-table-td">!<br> ~<br> ++<br> --<br> -<br> +<br> *<br> &amp;<br> (type)<br> <a href="http://www.cppreference.com/keywords/sizeof.html">sizeof</a></td><td class="code-table-td">逻辑取反操作符<br> 按位取反(按位取补) <br> 前置自增操作符<br> 前置自减操作符<br> 一元取负操作符<br> 一元取正操作符<br> 解引用操作符<br> 取地址操作符<br> 类型转换操作符<br> 返回对象占用的字节数操作符</td><td class="code-table-td">if( !done ) ...<br> flags = ~flags;<br> for( i = 0; i &lt; 10; ++i ) ...<br> for( i = 10; i &gt; 0; --i ) ...<br> int i = -1;<br> int i = +1;<br> data = *ptr;<br> address = &amp;obj;<br> int i = (int) floatNum;<br> int size = sizeof(floatNum);</td><td class="code-table-td">从右到左</td></tr><tr><td class="code-table-td">3</td><td class="code-table-td">-&gt;*<br> .*</td><td class="code-table-td">在指针上通过指向成员的指针访问成员的操作符<br> 在对象上通过指向成员的指针访问成员的操作符</td><td class="code-table-td">ptr-&gt;*var = 24;<br> obj.*var = 24;</td><td class="code-table-td">从左到右</td></tr><tr><td class="code-table-td">4</td><td class="code-table-td">*<br> /<br> %</td><td class="code-table-td">乘法操作符<br> 除法操作符<br> 取余数操作符</td><td class="code-table-td">int i = 2* 4;<br> float f = 10 / 3;<br> int rem = 4 % 3;</td><td class="code-table-td">从左到右</td></tr><tr><td class="code-table-td">5</td><td class="code-table-td">+<br> -</td><td class="code-table-td">加法操作符<br> 减法操作符</td><td class="code-table-td">int i = 2 + 3;<br> int i = 5 - 1;</td><td class="code-table-td">从左到右</td></tr><tr><td class="code-table-td">6</td><td class="code-table-td">&lt;&lt;<br> &gt;&gt;</td><td class="code-table-td">按位左移操作符<br> 按位右移操作符</td><td class="code-table-td">int flags = 33 &lt;&lt; 1;<br> int flags = 33 &gt;&gt; 1;</td><td class="code-table-td">从左到右</td></tr><tr><td class="code-table-td">7</td><td class="code-table-td">&lt;<br> &lt;=<br> &gt;<br> &gt;=</td><td class="code-table-td">小于比较操作符<br> 小于或等于比较操作符<br> 大于比较操作符<br> 大于或等于比较操作符</td><td class="code-table-td">if( i &lt; 42 ) ...<br> if( i &lt;= 42 ) ...<br> if( i &gt; 42 ) ...<br> if( i &gt;= 42 ) ...</td><td class="code-table-td">从左到右</td></tr><tr><td class="code-table-td">8</td><td class="code-table-td">==<br> !=</td><td class="code-table-td">等于比较操作符<br> 不等于比较操作符</td><td class="code-table-td">if( i == 42 ) ...<br> if( i != 42 ) ...</td><td class="code-table-td">从左到右</td></tr><tr><td class="code-table-td">9</td><td class="code-table-td">&amp;</td><td class="code-table-td">按位与操作符</td><td class="code-table-td">flags = flags &amp; 42;</td><td class="code-table-td">从左到右</td></tr><tr><td class="code-table-td">10</td><td class="code-table-td">^</td><td class="code-table-td">按位异或操作符</td><td class="code-table-td">flags = flags ^ 42;</td><td class="code-table-td">从左到右</td></tr><tr><td class="code-table-td">11</td><td class="code-table-td">|</td><td class="code-table-td">按位或操作符</td><td class="code-table-td">flags = flags | 42;</td><td class="code-table-td">从左到右</td></tr><tr><td class="code-table-td">12</td><td class="code-table-td">&amp;&amp;</td><td class="code-table-td">逻辑与操作符</td><td class="code-table-td">if( conditionA &amp;&amp; conditionB ) ...</td><td class="code-table-td">从左到右</td></tr><tr><td class="code-table-td">13</td><td class="code-table-td">||</td><td class="code-table-td">逻辑或操作符</td><td class="code-table-td">if( conditionA || conditionB ) ...</td><td class="code-table-td">从左到右</td></tr><tr><td class="code-table-td">14</td><td class="code-table-td">? :</td><td class="code-table-td">三元条件操作符</td><td class="code-table-td">int i = (a &gt; b) ? a : b;</td><td class="code-table-td">从右到左</td></tr><tr><td class="code-table-td">15</td><td class="code-table-td">=<br> +=<br> -=<br> *=<br> /=<br> %=<br> &amp;=<br> ^=<br> |=<br> &lt;&lt;=<br> &gt;&gt;=</td><td class="code-table-td">赋值操作符<br> 复合赋值操作符(加法)<br> 复合赋值操作符(减法)<br> 复合赋值操作符(乘法)<br> 复合赋值操作符(除法)<br> 复合赋值操作符(取余)<br> 复合赋值操作符(按位与)<br> 复合赋值操作符(按位异或)<br> 复合赋值操作符(按位或)<br> 复合赋值操作符(按位左移)<br> 复合赋值操作符(按位右移)</td><td class="code-table-td">int a = b;<br> a += 3;<br> b -= 4;<br> a*= 5;<br> a /= 2;<br> a %= 3;<br> flags &amp;= new_flags;<br> flags ^= new_flags;<br> flags |= new_flags;<br> flags &lt;&lt;= 2;<br> flags &gt;&gt;= 2;</td><td class="code-table-td">从右到左</td></tr><tr><td class="code-table-td">16</td><td class="code-table-td">,</td><td class="code-table-td">逗号操作符</td><td class="code-table-td">for( i = 0, j = 0; i &lt; 10; i++, j++ ) ...</td><td class="code-table-td">从左到右</td></tr></tbody></table>
+
+### 一些话
+
+#### 留给后人 - 技巧
+
+[初学者自学](https://www.hello-algo.com/) | [深入研究](https://oi-wiki.org/) | [自己写的](http://blog.enming.top/algorithms/index.html) | [避坑技巧](https://loj.ac/d/3422)
+
+你可以使用VS Code，然后你就可以享受代码补全，舒适的调试，方便的自定义编译选项，自动格式化代码等等好处。
+
+#### 编译选项
+
+```
+g++ a.cpp -o a -std=c++14 -O2 -Wall -Wextra -fno-ms-extensions -fsanitize=address,undefined
+```
+
+1. 用 `#include<bits/stdc++.h>`（内含 OI 通常能用到的所有头文件）而不是逐个写头文件，以免实际上漏了头文件但本地环境自动补齐。（小心bits的斜杠在win下反过来打也能过编）
+2. （可选）把整个程序装进自己的 `namespace`，以免和库中的名称冲突（比如 `next` 和 `pipe`）
+3. 如果题目没有特别说明，编译选项尽量加上 `-std=c++14`。如果这样不能编译（指的是编译器版本过低不支持 C++14 而不是你的程序编译错误！），就至少加上 `-std=c++11`。
+4. 编译选项加上 `-Wall -Wextra`，让编译器提醒一些常见错误，比如函数不写返回值。
+5. 编译选项加上 `-fno-ms-extensions`（关闭一些和 msvc 保持一致的特性，例如，关闭后不标返回值类型的函数会报 CE 而不是默认为 `int`）。
+6. 函数无返回值在低版本g++中开O2概率性正常执行，高版本g++中必re。
+7. 于是添加了`-fsanitize=address,undefined`后运行时会帮你检查地址越界和未定义行为可能引发的问题（会略微降低你代码的速度，正常现象）
+8. 极端一点可以使用`-Werror`，这样做警告都会当错误报。
