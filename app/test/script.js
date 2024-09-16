@@ -26,7 +26,7 @@ function captureAndSendPicture() {
         const formData = new FormData();
         formData.append('image', blob);
 
-        fetch('http://118.25.82.170:8080/upload', {
+        fetch('https://mi.up520.cn:56777/upload', {
             method: 'POST',
             body: formData
         })
